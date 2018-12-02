@@ -1,0 +1,29 @@
+{
+    "name": "goclearsky/croogo-geo",
+    "description": "A Croogo plugin to enable Google Maps. Wraps the plugin dereuromark/cakephp-geo.",
+    "type": "croogo-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mike Tallroth",
+            "email": "mike.tallroth@goclearsky.com"
+        }
+    ],
+    "require": {
+        "dereuromark/cakephp-geo": "^1.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7|^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ClearSky\\CroogoGeo\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ClearSky\\CroogoGeo\\Test\\": "tests",
+            "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
+        }
+    }
+}
