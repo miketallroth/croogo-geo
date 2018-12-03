@@ -1,5 +1,6 @@
 <?php
 use Migrations\AbstractMigration;
+use Cake\ORM\TableRegistry;
 
 /**
  * Initial Migration
@@ -38,13 +39,10 @@ class CroogoGeoInitialMigration extends AbstractMigration
 
     public function down()
     {
-        $Table = $this->table('settings');
-        $query = $Table->find('all', [
-            'where' => ['Settings.key' => $this->records[0]['key']],
-        ]);
-        $records = $query->first();
-print_r($records);
-        //$Table->delete($records);
+        $Settings = TableRegistry::getTableLocator()->get('Settings');
+
+        // delete the map api key
+        $result = $Settings->deleteAll(['Settings.`key`' => $this->records[0]['key']]);
     }
 
 }
