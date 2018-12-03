@@ -1,6 +1,6 @@
 {
     "name": "goclearsky/croogo-geo",
-    "description": "A Croogo plugin to enable Google Maps. Wraps the plugin dereuromark/cakephp-geo.",
+    "description": "A Croogo plugin to enable Google Maps",
     "type": "croogo-plugin",
     "license": "MIT",
     "authors": [

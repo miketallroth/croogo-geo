@@ -1,4 +1,4 @@
-# CroogoGeo plugin for CakePHP
+# Geo plugin for Croogo
 
 A Croogo plugin to enable Google Maps. Wraps the plugin dereuromark/cakephp-geo.
 
