@@ -8,8 +8,8 @@ $this->loadHelper('Geo.GoogleMap', $config);
 
 
 $options = [
-	'lat' => 44.2648051,
-	'lng' => -88.4039178,
+	'lat' => 44.2651738,
+	'lng' => -88.4081236,
 	'zoom' => 12,
 	'type' => 'R',
 	'div' => ['id' => 'someothers'],
@@ -26,8 +26,8 @@ $icons['rf-yellow'] = $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfil
 
 // Let's add some markers
 $this->GoogleMap->addMarker([
-	'lat' => 44.2648051,
-	'lng' => -88.4039178,
+	'lat' => 44.2651738,
+	'lng' => -88.4081236,
 	'title' => 'Appleton, WI',
 	'content' => 'Some Html-<b>Content</b>',
 	'icon' => $icons['rf-green'],
