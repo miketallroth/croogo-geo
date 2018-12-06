@@ -18,17 +18,11 @@ $options = [
 $map = $this->GoogleMap->map($options);
 
 
-$icon = $this->GoogleMap->addIcon('https://maps.google.com/mapfiles/kml/paddle/blu-circle.png');
-$blueCirclePaddlIconId = $icon['icon'];
-
-$icon = $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_gray.png');
-$graySmallIconId = $icon['icon'];
-
-$icon = $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png');
-$greenSmallIconId = $icon['icon'];
-
-$icon = $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png');
-$yellowSmallIconId = $icon['icon'];
+$icons = [];
+$icons['blue-paddle'] = $this->GoogleMap->addIcon('https://maps.google.com/mapfiles/kml/paddle/blu-circle.png');
+$icons['rf-gray'] = $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_gray.png');
+$icons['rf-green'] = $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png');
+$icons['rf-yellow'] = $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png');
 
 // Let's add some markers
 $this->GoogleMap->addMarker([
@@ -36,7 +30,7 @@ $this->GoogleMap->addMarker([
 	'lng' => -88.4039178,
 	'title' => 'Appleton, WI',
 	'content' => 'Some Html-<b>Content</b>',
-	'icon' => $greenSmallIconId,
+	'icon' => $icons['rf-green'],
 ]);
 
 
