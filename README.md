@@ -9,9 +9,23 @@ You can install this plugin into your CakePHP application using [composer](http:
 ```
 composer require goclearsky/croogo-geo
 ```
+
+## Migration
+
+Use `cake migrations` to add the api key setting, and to seed some sample data.
+```
+cake migrations migrate -p ClearSky/CroogoGeo
+cake migrations seed -p ClearSky/CroogoGeo
+```
+
 ## Use
 
-TBD
+Set your Google Maps API key under Settings > Service
+
+Enable the Sample Map Block to see how to include a map in a block.
+
+Publish the Sample Map Blog to see how to include a map in a node post.
+
 
 ## Contributing
 
