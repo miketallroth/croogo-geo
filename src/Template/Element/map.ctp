@@ -6,44 +6,83 @@ $config = [
 $this->loadHelper('Geo.GoogleMap', $config);
 
 
-
-$options = [
-    'lat' => 44.2651738,
-    'lng' => -88.4081236,
-    'zoom' => 12,
-    'type' => 'R',
-    'div' => ['id' => 'someothers'],
-    'map' => ['navOptions' => ['style' => 'SMALL'], 'typeOptions' => ['style' => 'HORIZONTAL_BAR', 'pos' => 'RIGHT_CENTER']]
+// TODO set $maps in controller->set() or helper
+$maps = [
+    'icons' => [
+        'blue-paddle' => $this->GoogleMap->addIcon('https://maps.google.com/mapfiles/kml/paddle/blu-circle.png'),
+        'rf-gray' => $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_gray.png'),
+        'rf-green' => $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png'),
+        'rf-yellow' => $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png'),
+    ],
+    'maps' => [],
 ];
-$map = $this->GoogleMap->map($options);
-
-
-$icons = [];
-$icons['blue-paddle'] = $this->GoogleMap->addIcon('https://maps.google.com/mapfiles/kml/paddle/blu-circle.png');
-$icons['rf-gray'] = $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_gray.png');
-$icons['rf-green'] = $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png');
-$icons['rf-yellow'] = $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png');
-
-$mapId = 0;
-$markers[0][] = [
-    'lat' => 44.2651738,
-    'lng' => -88.4081236,
-    'title' => 'Joe Cool',
-    'content' => 'Some Html <b>Content</b>',
-    'icon' => $icons['rf-green'],
+$maps['maps'][0] = [
+    'options' => [
+        'lat' => 44.2651738,
+        'lng' => -88.4081236,
+        'zoom' => 12,
+        'type' => 'R',
+        'div' => ['id' => 'someothers'],
+        'map' => ['navOptions' => ['style' => 'SMALL'], 'typeOptions' => ['style' => 'HORIZONTAL_BAR', 'pos' => 'RIGHT_CENTER']]
+    ],
+    'markers' => [
+        [
+            'lat' => 44.2651738,
+            'lng' => -88.4081236,
+            'title' => 'Joe Cool',
+            'content' => 'Some Html <b>Content</b>',
+            'icon' => $maps['icons']['rf-green'],
+        ],
+        [
+            'lat' => 44.2752938,
+            'lng' => -88.4182436,
+            'title' => 'Billy Black',
+            'content' => 'Some Html <b>Content</b>',
+            'icon' => $maps['icons']['rf-green'],
+        ]
+    ]
 ];
-$markers[0][] = [
-    'lat' => 44.2752938,
-    'lng' => -88.4182436,
-    'title' => 'Billy Black',
-    'content' => 'Some Html <b>Content</b>',
-    'icon' => $icons['rf-green'],
+$maps['maps'][1] = [
+    'options' => [
+        'lat' => 44.2651738,
+        'lng' => -88.4081236,
+        'zoom' => 12,
+        'type' => 'R',
+        'div' => ['id' => 'someothers'],
+        'map' => ['navOptions' => ['style' => 'SMALL'], 'typeOptions' => ['style' => 'HORIZONTAL_BAR', 'pos' => 'RIGHT_CENTER']]
+    ],
 ];
+
+
+
+
+
+// set to default, typically not showing any markers
+if (!isset($mapId)) {
+    $mapId = -1;
+    $maps['maps'][-1] = [
+        'options' => [],
+        'markers' => [],
+    ];
+}
+
+// render map
+$map = $this->GoogleMap->map($maps['maps'][$mapId]['options']);
 
 // Let's add some markers
-foreach ($markers[$mapId] as $marker) {
-    $this->GoogleMap->addMarker($marker);
+if (!empty($maps['maps'][$mapId]['markers'])) {
+    foreach ($maps['maps'][$mapId]['markers'] as $marker) {
+        $this->GoogleMap->addMarker($marker);
+    }
 }
+
+// place map in html
+echo $map;
+
+// finalize returns a script w/o the script tags
+// add this to the bottom inline scripts
+$s = $this->GoogleMap->finalize(true);
+$this->Html->scriptBlock($s, ['block' => 'scriptBottom']);
 
 
 /**
@@ -63,11 +102,4 @@ foreach ($markers[$mapId] as $marker) {
  * gray, green, orange, purple, red, white, yellow, black, blue, brown
  * 
  */
-echo $map;
-
-// finalize returns a script w/o the script tags
-// add this to the bottom inline scripts
-$s = $this->GoogleMap->finalize(true);
-$this->Html->scriptBlock($s, ['block' => 'scriptBottom']);
-
 ?>
