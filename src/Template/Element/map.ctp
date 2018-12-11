@@ -1,19 +1,19 @@
 <?php
 
 $config = [
-	'autoScript' => true,
+    'autoScript' => true,
 ];
 $this->loadHelper('Geo.GoogleMap', $config);
 
 
 
 $options = [
-	'lat' => 44.2651738,
-	'lng' => -88.4081236,
-	'zoom' => 12,
-	'type' => 'R',
-	'div' => ['id' => 'someothers'],
-	'map' => ['navOptions' => ['style' => 'SMALL'], 'typeOptions' => ['style' => 'HORIZONTAL_BAR', 'pos' => 'RIGHT_CENTER']]
+    'lat' => 44.2651738,
+    'lng' => -88.4081236,
+    'zoom' => 12,
+    'type' => 'R',
+    'div' => ['id' => 'someothers'],
+    'map' => ['navOptions' => ['style' => 'SMALL'], 'typeOptions' => ['style' => 'HORIZONTAL_BAR', 'pos' => 'RIGHT_CENTER']]
 ];
 $map = $this->GoogleMap->map($options);
 
@@ -24,14 +24,26 @@ $icons['rf-gray'] = $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles
 $icons['rf-green'] = $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png');
 $icons['rf-yellow'] = $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png');
 
+$mapId = 0;
+$markers[0][] = [
+    'lat' => 44.2651738,
+    'lng' => -88.4081236,
+    'title' => 'Joe Cool',
+    'content' => 'Some Html <b>Content</b>',
+    'icon' => $icons['rf-green'],
+];
+$markers[0][] = [
+    'lat' => 44.2752938,
+    'lng' => -88.4182436,
+    'title' => 'Billy Black',
+    'content' => 'Some Html <b>Content</b>',
+    'icon' => $icons['rf-green'],
+];
+
 // Let's add some markers
-$this->GoogleMap->addMarker([
-	'lat' => 44.2651738,
-	'lng' => -88.4081236,
-	'title' => 'Appleton, WI',
-	'content' => 'Some Html-<b>Content</b>',
-	'icon' => $icons['rf-green'],
-]);
+foreach ($markers[$mapId] as $marker) {
+    $this->GoogleMap->addMarker($marker);
+}
 
 
 /**
