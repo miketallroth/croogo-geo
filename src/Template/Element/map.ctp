@@ -23,7 +23,7 @@ $maps['maps'][0] = [
         'zoom' => 12,
         'type' => 'R',
         'div' => ['id' => 'someothers'],
-        'map' => ['navOptions' => ['style' => 'SMALL'], 'typeOptions' => ['style' => 'HORIZONTAL_BAR', 'pos' => 'RIGHT_CENTER']]
+        'map' => ['navOptions' => ['style' => 'SMALL'], 'typeOptions' => ['style' => 'HORIZONTAL_BAR', 'pos' => 'LEFT_BOTTOM']]
     ],
     'markers' => [
         [
@@ -46,11 +46,27 @@ $maps['maps'][1] = [
     'options' => [
         'lat' => 44.2651738,
         'lng' => -88.4081236,
-        'zoom' => 12,
+        'zoom' => 11,
         'type' => 'R',
         'div' => ['id' => 'someothers'],
-        'map' => ['navOptions' => ['style' => 'SMALL'], 'typeOptions' => ['style' => 'HORIZONTAL_BAR', 'pos' => 'RIGHT_CENTER']]
+        'map' => ['navOptions' => ['style' => 'SMALL'], 'typeOptions' => ['style' => 'HORIZONTAL_BAR', 'pos' => 'LEFT_BOTTOM']]
     ],
+    'markers' => [
+        [
+            'lat' => 44.2651738,
+            'lng' => -88.4081236,
+            'title' => 'Joe Cool',
+            'content' => 'Some Html <b>Content</b>',
+            'icon' => $maps['icons']['rf-green'],
+        ],
+        [
+            'lat' => 44.2851738,
+            'lng' => -88.4381236,
+            'title' => 'Jimmy John',
+            'content' => 'Some Html <b>Content</b>',
+            'icon' => $maps['icons']['rf-yellow'],
+        ],
+    ]
 ];
 
 
