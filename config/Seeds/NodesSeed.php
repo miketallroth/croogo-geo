@@ -12,7 +12,7 @@ class NodesSeed extends AbstractSeed
             'user_id' => '1',
             'title' => 'Sample Map Blog',
             'slug' => 'sample-map-blog',
-            'body' => '[element:map plugin=ClearSky/CroogoGeo]',
+            'body' => '[element:map plugin=ClearSky/CroogoGeo mapId="0"]',
             'excerpt' => '',
             'status' => '0',
             'mime_type' => '',
