@@ -13,6 +13,7 @@ $maps = [
         'rf-gray' => $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_gray.png'),
         'rf-green' => $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png'),
         'rf-yellow' => $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_yellow.png'),
+        'rf-orange' => $this->GoogleMap->addIcon('https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_orange.png'),
     ],
     'maps' => [],
 ];
