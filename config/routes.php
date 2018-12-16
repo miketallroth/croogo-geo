@@ -4,7 +4,7 @@ use Cake\Routing\Router;
 use Cake\Routing\Route\DashedRoute;
 
 Router::plugin(
-    'CroogoGeo',
+    'ClearSky/CroogoGeo',
     ['path' => '/croogo-geo'],
     function (RouteBuilder $routes) {
         $routes->fallbacks(DashedRoute::class);
