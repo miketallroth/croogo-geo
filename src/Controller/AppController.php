@@ -2,9 +2,9 @@
 
 namespace ClearSky\CroogoGeo\Controller;
 
-use App\Controller\AppController as BaseController;
+use Croogo\Core\Controller\AppController as CroogoController;
 
-class AppController extends BaseController
+class AppController extends CroogoController
 {
 
 }
