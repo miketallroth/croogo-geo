@@ -7,6 +7,7 @@ $this->loadHelper('Geo.GoogleMap', $config);
 
 
 // TODO set $maps in controller->set() or helper
+/*
 $maps = [
     'icons' => [
         'blue-paddle' => $this->GoogleMap->addIcon('https://maps.google.com/mapfiles/kml/paddle/blu-circle.png'),
@@ -69,6 +70,7 @@ $maps['maps'][1] = [
         ],
     ]
 ];
+*/
 
 
 
