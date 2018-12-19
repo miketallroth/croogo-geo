@@ -75,6 +75,16 @@ $maps['maps'][1] = [
 
 
 
+if (!isset($maps)) {
+    $maps= [
+        'maps' => [
+            -1 => [
+                'options' => [],
+                'markers' => [],
+            ]
+        ]
+    ];
+}
 
 // set to default, typically not showing any markers
 if (!isset($mapId)) {
@@ -86,7 +96,12 @@ if (!isset($mapId)) {
 }
 
 // render map
-$map = $this->GoogleMap->map($maps['maps'][$mapId]['options']);
+if (!empty($maps['maps'][$mapId])) {
+    $map = $this->GoogleMap->map($maps['maps'][$mapId]['options']);
+    echo $map;
+} else {
+    echo "missing map definition";
+}
 
 // Let's add some markers
 if (!empty($maps['maps'][$mapId]['markers'])) {
@@ -94,9 +109,6 @@ if (!empty($maps['maps'][$mapId]['markers'])) {
         $this->GoogleMap->addMarker($marker);
     }
 }
-
-// place map in html
-echo $map;
 
 // finalize returns a script w/o the script tags
 // add this to the bottom inline scripts
