@@ -15,13 +15,23 @@ if (!isset($mapScope)) {
     $mapScope = null;
 }
 
+$options = null;
+$markers = null;
 
 // setup event with mapId and mapScope
 $manager = $this->getEventManager();
-$event = new Event('View.CroogoGeo.fetchMap', $this, []);
+$event = new Event('View.CroogoGeo.fetchData', $this, [$mapId, $mapScope]);
 $manager->dispatch($event);
+$result = $event->getResult();
+if (!empty($result['options'])) {
+    $options = $result['options'];
+}
+if (!empty($result['markers'])) {
+    $markers = $result['markers'];
+}
 
 // fake results of event listener
+/*
 $options = [
     'lat' => 44.2651738,
     'lng' => -88.4081236,
@@ -31,6 +41,7 @@ $options = [
     'map' => ['navOptions' => ['style' => 'SMALL'], 'typeOptions' => ['style' => 'HORIZONTAL_BAR', 'pos' => 'LEFT_BOTTOM']]
 ];
 $markers = null;
+*/
 
 // dispatch event
 
