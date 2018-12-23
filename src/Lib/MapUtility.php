@@ -64,15 +64,15 @@ class MapUtility implements EventListenerInterface
             'icon' => $icons['rf-yellow'],
         ];
 
-        $markers = [
-            $joeMarker,
-        ];
+        $markers = [];
 
         if ($mapId == 0) {
             $options['zoom'] = 12;
+            $markers[] = $joeMarker;
             $markers[] = $billyMarker;
         } else if ($mapId == 1) {
             $options['zoom'] = 11;
+            $markers[] = $joeMarker;
             $markers[] = $jimmyMarker;
         }
 
