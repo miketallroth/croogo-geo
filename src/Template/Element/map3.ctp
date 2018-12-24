@@ -2,10 +2,7 @@
 
 use Cake\Event\Event;
 
-$config = [
-    'autoScript' => true,
-];
-$this->loadHelper('Geo.GoogleMap', $config);
+$this->loadHelper('Geo.GoogleMap', ['autoScript' => true]);
 
 if (!isset($mapId)) {
     $mapId = 0;
